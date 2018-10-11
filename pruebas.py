@@ -18,8 +18,6 @@ class SmallSMILHandler(ContentHandler):
                     'audio': ['src', 'begin', 'dur'],
                     'textstream': ['src', 'region']}
 
-
-
     def startElement(self, name, attrs):
         """
         Método que se llama cuando se abre una etiqueta, primer blucle
