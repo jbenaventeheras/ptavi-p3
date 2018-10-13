@@ -30,7 +30,7 @@ class SmallSMILHandler(ContentHandler):
 
         dicc = {}
         while name in self.att:
-            for att in range(len(self.att)):
+            for att in self.att[name]:
                 dicc[att] = attrs.get(att, 'elemeto inexistente')
             self.listafinal.append([name, dicc])
             break
@@ -39,7 +39,7 @@ class SmallSMILHandler(ContentHandler):
         """imprime la list creada que contiene en cada posicion un name con la
         clave y un diccionario con los atributos"""
 
-        return self.listafinal
+        print(self.listafinal)
 
 if __name__ == '__main__':
 
@@ -47,4 +47,4 @@ if __name__ == '__main__':
     cHandler = SmallSMILHandler()
     parser.setContentHandler(cHandler)
     parser.parse(open('karaoke.smil'))
-    print(cHandler.get_tags())
+    cHandler.get_tags()
