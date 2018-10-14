@@ -41,7 +41,15 @@ class KaraokeLocal:
         return string_etiquetas
 
 
+    def do_local(self):
 
+        for tag in self.tags:
+            for element in tag[1]:
+                if element == 'src':
+                    if tag[1][element].startswith('http'):
+                        file_name = tag[1][element].split('/')[-1]
+                        urllib.request.urlretrieve(tag[1][element], file_name)
+                        tag[1][element] = file_name
 
 if __name__ == '__main__':
 
