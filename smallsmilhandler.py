@@ -38,8 +38,12 @@ class SmallSMILHandler(ContentHandler):
     def get_tags(self):
         """imprime la list creada que contiene en cada posicion un name con la
         clave y un diccionario con los atributos"""
+        return self.listafinal
 
-        print(self.listafinal)
+    def imprimir_tags(self):
+
+        for name in self.listafinal:
+            print(name)
 
 if __name__ == '__main__':
 
@@ -48,3 +52,4 @@ if __name__ == '__main__':
     parser.setContentHandler(cHandler)
     parser.parse(open('karaoke.smil'))
     cHandler.get_tags()
+    cHandler.imprimir_tags()
