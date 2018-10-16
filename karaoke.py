@@ -18,7 +18,6 @@ class KaraokeLocal:
         parser.parse(open(file_name))
         self.tags = cHandler.get_tags()
 
-
     def to_json(self, filesmil, filejson=''):
 
         "cambiamos .smil por .json"
@@ -36,10 +35,9 @@ class KaraokeLocal:
             string_etiquetas += tag[0]
             for element in tag[1]:
                 if tag[1][element] != '':
-                    string_etiquetas += '/' + element + '/"' + tag[1][element] + '"'
+                    string_etiquetas += '/'+element + '/"'+tag[1][element]+'"'
             string_etiquetas += '\n'
         return string_etiquetas
-
 
     def do_local(self):
 
@@ -50,6 +48,7 @@ class KaraokeLocal:
                         file_name = tag[1][element].split('/')[-1]
                         urllib.request.urlretrieve(tag[1][element], file_name)
                         tag[1][element] = file_name
+
 
 if __name__ == '__main__':
 
@@ -62,5 +61,5 @@ if __name__ == '__main__':
     karaoke.to_json(file_name)
     karaoke.do_local()
     karaoke.to_json(file_name, 'local.json')
-    print("----------------------------dowload files json----------------------------\n")
+    print("--------dowload files json------------\n")
     print(karaoke)

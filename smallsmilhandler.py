@@ -3,9 +3,10 @@
 from xml.sax import make_parser
 from xml.sax.handler import ContentHandler
 
+
 class SmallSMILHandler(ContentHandler):
 
-    def __init__ (self):
+    def __init__(self):
         """
         Constructor. Inicializamos las variables con las claves
         y sus atributos que seremos capaces de reconocer.
@@ -18,12 +19,10 @@ class SmallSMILHandler(ContentHandler):
                     'audio': ['src', 'begin', 'dur'],
                     'textstream': ['src', 'region']}
 
-
-
     def startElement(self, name, attrs):
         """
         Método que se llama cuando se abre una etiqueta, primer blucle
-        mientras el nombre pasado por paser se encuentre en el archivo, entrando al
+        mientras nombre pasado por paser se encuentre en archivo, entrando al
         segundo bucle para esa clave busca con get en sus atributos añadiendolo
         al dicc creado y finalmente añadiendo la clave y el dicc a list
         """
@@ -44,6 +43,7 @@ class SmallSMILHandler(ContentHandler):
 
         for name in self.listafinal:
             print(name)
+
 
 if __name__ == '__main__':
 
